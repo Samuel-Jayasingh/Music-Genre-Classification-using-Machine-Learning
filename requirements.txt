@@ -10,3 +10,4 @@ gradio
 matplotlib
 seaborn
 requests
+flask_cors
