@@ -36,4 +36,4 @@ with gr.Blocks() as demo:
                      outputs=output_table)
 
 # Launch the Gradio interface
-demo.launch()
+demo.launch(share=True)
