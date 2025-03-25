@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from src.recommender import MusicRecommender
 from src.feedback import FeedbackManager
 from flask_cors import CORS
+import os
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for frontend integration
@@ -51,5 +52,5 @@ def log_feedback():
     return jsonify({"status": "success"})
 
 if __name__ == '__main__':
-    # Run the API on host 0.0.0.0 and port 5000 in debug mode.
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    # Make sure Gunicorn runs this app
+    app.run(debug=True, host='0.0.0.0', port=int(os.getenv('PORT', 5000)))
