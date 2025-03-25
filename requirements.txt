@@ -1,0 +1,12 @@
+# Core dependencies
+Flask
+pandas
+scikit-learn
+sentence-transformers
+numpy
+joblib
+transformers
+gradio
+matplotlib
+seaborn
+requests
