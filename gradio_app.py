@@ -1,10 +1,14 @@
 import gradio as gr
 from src.recommender import MusicRecommender
 
-# Instantiate the recommender system
+# Instantiate the recommender system (this may take a moment)
 recommender = MusicRecommender()
 
 def get_recommendations(song_name, top_n, method, alpha):
+    """
+    Get recommendations for a given song using the specified parameters.
+    Returns a dataframe of recommended songs.
+    """
     if not song_name.strip():
         return "Please enter a valid song name."
     recs = recommender.recommend(song_name, top_n=top_n, method=method, alpha=alpha)
@@ -31,5 +35,5 @@ with gr.Blocks() as demo:
                      inputs=[song_input, top_n_slider, method_radio, alpha_slider],
                      outputs=output_table)
 
-# Launch the Gradio interface on a separate port
-demo.launch(server_name="0.0.0.0", server_port=7860, share=False)
+# Launch the Gradio interface
+demo.launch()
